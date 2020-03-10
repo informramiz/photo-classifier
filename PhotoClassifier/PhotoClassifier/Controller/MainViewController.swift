@@ -19,8 +19,39 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        verifyAccessAndSetupSession()
+        (self.view as! VideoPreviewView).previewLayer.session = session
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        sessionQueue.async {
+            self.session.stopRunning()
+        }
+    }
+    
+    private func verifyAccessAndSetupSession() {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            setupCaptureSession()
+        case .notDetermined: //user has not been asked yet so ask now
+            requestAccessAndSetupSession()
+        default:
+            sessionSetupResult = .notAuthorized
+        }
+    }
+    
+    private func requestAccessAndSetupSession() {
+        AVCaptureDevice.requestAccess(for: .video) { (granted) in
+            if granted {
+                self.setupCaptureSession()
+            } else {
+                self.sessionSetupResult = .notAuthorized
+            }
+        }
+    }
 
-    // Call this on sessionQueue
     private func setupCaptureSession() {
         if sessionSetupResult != .success {
             return
@@ -30,12 +61,15 @@ class MainViewController: UIViewController {
             self.sessionSetupResult = result ? .success : .failed
         }
         
-        session.beginConfiguration()
-        var result = addInput()
-        setSessionResult(result)
-        result = addOutput()
-        setSessionResult(result)
-        session.commitConfiguration()
+        sessionQueue.async {
+            self.session.beginConfiguration()
+            var result = self.addInput()
+            setSessionResult(result)
+            result = self.addOutput()
+            setSessionResult(result)
+            self.session.commitConfiguration()
+            self.session.startRunning()
+        }
     }
     
     private func addInput() -> Bool {
