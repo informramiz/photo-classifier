@@ -58,13 +58,37 @@
 			children = (
 				18695A852416C85D00563E8A /* AppDelegate.swift */,
 				18695A872416C85D00563E8A /* SceneDelegate.swift */,
-				18695A892416C85D00563E8A /* ViewController.swift */,
-				18695A8B2416C85D00563E8A /* Main.storyboard */,
+				18695A9B2417D07800563E8A /* Model */,
+				18695A992417CFE900563E8A /* View */,
+				18695A9A2417D00F00563E8A /* Controller */,
 				18695A8E2416C86000563E8A /* Assets.xcassets */,
-				18695A902416C86000563E8A /* LaunchScreen.storyboard */,
 				18695A932416C86000563E8A /* Info.plist */,
 			);
 			path = PhotoClassifier;
+			sourceTree = "<group>";
+		};
+		18695A992417CFE900563E8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18695A8B2416C85D00563E8A /* Main.storyboard */,
+				18695A902416C86000563E8A /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18695A9A2417D00F00563E8A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18695A892416C85D00563E8A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18695A9B2417D07800563E8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
