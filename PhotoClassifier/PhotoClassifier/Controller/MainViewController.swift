@@ -11,10 +11,12 @@ import AVFoundation
 
 class MainViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var classificationLabel: UILabel!
     private let session = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "sessionQueue")
     private let processingQueue = DispatchQueue(label: "outputQueue")
     private var sessionSetupResult: SessionSetupResult = .success
+    private let imageClassifier = ImageClassifier()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,9 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         verifyAccessAndSetupSession()
         (self.view as! VideoPreviewView).previewLayer.session = session
+        imageClassifier.delegate = { (result: String) in
+            self.classificationLabel.text = result
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -123,9 +128,8 @@ class MainViewController: UIViewController {
 
 extension MainViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        let uiImage = sampleBuffer.toUIImage()
-        DispatchQueue.main.async {
-            self.imageView.image = uiImage
-        }
+        guard let ciImage = sampleBuffer.toCIImage() else { return }
+        let uiImage = ciImage.toUIImage()
+        imageClassifier.classifyImage(ciImage, orientation: uiImage.imageOrientation)
     }
 }
