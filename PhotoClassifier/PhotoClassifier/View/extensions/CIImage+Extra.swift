@@ -2,7 +2,7 @@
 //  CIImage+Extra.swift
 //  PhotoClassifier
 //
-//  Created by Apple on 11/03/2020.
+//  Created by Ramiz Raja on 11/03/2020.
 //  Copyright © 2020 RR Inc. All rights reserved.
 //
 
