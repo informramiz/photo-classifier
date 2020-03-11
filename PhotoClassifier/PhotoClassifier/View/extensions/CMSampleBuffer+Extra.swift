@@ -11,12 +11,13 @@ import AVFoundation
 import UIKit
 
 extension CMSampleBuffer {
-    func toCIImage() -> CIImage {
-        let imagePixelBuffer = CMSampleBufferGetImageBuffer(self)!
-        return CIImage(cvPixelBuffer: imagePixelBuffer)
+    func toCIImage() -> CIImage? {
+        let imagePixelBuffer = CMSampleBufferGetImageBuffer(self)
+        guard imagePixelBuffer != nil else { return nil }
+        return CIImage(cvPixelBuffer: imagePixelBuffer!)
     }
     
-    func toUIImage() -> UIImage {
-        return toCIImage().toUIImage()
+    func toUIImage() -> UIImage? {
+        return toCIImage()?.toUIImage() ?? nil
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 class MainViewController: UIViewController {
+    @IBOutlet weak var imageView: UIImageView!
     private let session = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "sessionQueue")
     private let processingQueue = DispatchQueue(label: "outputQueue")
@@ -73,7 +74,7 @@ class MainViewController: UIViewController {
     }
     
     private func addInput() -> Bool {
-        return addInputDevice { () -> AVCaptureDevice? in
+        return addInputDevice {
             var inputDevice: AVCaptureDevice?
             if let dualCameraDevice = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back) {
                 inputDevice = dualCameraDevice
@@ -121,7 +122,10 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        //TODO
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        let uiImage = sampleBuffer.toUIImage()
+        DispatchQueue.main.async {
+            self.imageView.image = uiImage
+        }
     }
 }
