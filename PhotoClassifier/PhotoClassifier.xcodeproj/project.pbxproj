@@ -15,6 +15,8 @@
 		18695A922416C86000563E8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18695A902416C86000563E8A /* LaunchScreen.storyboard */; };
 		18695A9E2417D5B700563E8A /* VideoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695A9D2417D5B700563E8A /* VideoPreviewView.swift */; };
 		18695AA024182E9400563E8A /* SessionSetupResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695A9F24182E9400563E8A /* SessionSetupResult.swift */; };
+		18695AA32419372A00563E8A /* CMSampleBuffer+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA22419372A00563E8A /* CMSampleBuffer+Extra.swift */; };
+		18695AA52419399100563E8A /* CIImage+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA42419399100563E8A /* CIImage+Extra.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		18695A932416C86000563E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18695A9D2417D5B700563E8A /* VideoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewView.swift; sourceTree = "<group>"; };
 		18695A9F24182E9400563E8A /* SessionSetupResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSetupResult.swift; sourceTree = "<group>"; };
+		18695AA22419372A00563E8A /* CMSampleBuffer+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+Extra.swift"; sourceTree = "<group>"; };
+		18695AA42419399100563E8A /* CIImage+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extra.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 		18695A992417CFE900563E8A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18695AA1241936A800563E8A /* extensions */,
 				18695A9C2417D57300563E8A /* CustomViews */,
 				18695A8B2416C85D00563E8A /* Main.storyboard */,
 				18695A902416C86000563E8A /* LaunchScreen.storyboard */,
@@ -103,6 +108,15 @@
 				18695A9D2417D5B700563E8A /* VideoPreviewView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		18695AA1241936A800563E8A /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				18695AA22419372A00563E8A /* CMSampleBuffer+Extra.swift */,
+				18695AA42419399100563E8A /* CIImage+Extra.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,8 +192,10 @@
 			files = (
 				18695A8A2416C85D00563E8A /* MainViewController.swift in Sources */,
 				18695A9E2417D5B700563E8A /* VideoPreviewView.swift in Sources */,
+				18695AA52419399100563E8A /* CIImage+Extra.swift in Sources */,
 				18695A862416C85D00563E8A /* AppDelegate.swift in Sources */,
 				18695A882416C85D00563E8A /* SceneDelegate.swift in Sources */,
+				18695AA32419372A00563E8A /* CMSampleBuffer+Extra.swift in Sources */,
 				18695AA024182E9400563E8A /* SessionSetupResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
