@@ -19,6 +19,7 @@
 		18695AA52419399100563E8A /* CIImage+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA42419399100563E8A /* CIImage+Extra.swift */; };
 		18695AA82419471600563E8A /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA72419471600563E8A /* MobileNetV2.mlmodel */; };
 		18695AAA2419483900563E8A /* CGImagePropertyOrientation+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA92419483900563E8A /* CGImagePropertyOrientation+Extra.swift */; };
+		18695AAE24194A1B00563E8A /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AAD24194A1B00563E8A /* ImageClassifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		18695AA42419399100563E8A /* CIImage+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extra.swift"; sourceTree = "<group>"; };
 		18695AA72419471600563E8A /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		18695AA92419483900563E8A /* CGImagePropertyOrientation+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Extra.swift"; sourceTree = "<group>"; };
+		18695AAD24194A1B00563E8A /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,8 @@
 		18695A9A2417D00F00563E8A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18695AAC24194A0600563E8A /* Classifier */,
+				18695AAB241949CE00563E8A /* extensions */,
 				18695AA6241946D900563E8A /* MLModels */,
 				18695A892416C85D00563E8A /* MainViewController.swift */,
 				18695A9F24182E9400563E8A /* SessionSetupResult.swift */,
@@ -131,6 +135,21 @@
 				18695AA72419471600563E8A /* MobileNetV2.mlmodel */,
 			);
 			path = MLModels;
+			sourceTree = "<group>";
+		};
+		18695AAB241949CE00563E8A /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		18695AAC24194A0600563E8A /* Classifier */ = {
+			isa = PBXGroup;
+			children = (
+				18695AAD24194A1B00563E8A /* ImageClassifier.swift */,
+			);
+			path = Classifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +225,7 @@
 			files = (
 				18695A8A2416C85D00563E8A /* MainViewController.swift in Sources */,
 				18695A9E2417D5B700563E8A /* VideoPreviewView.swift in Sources */,
+				18695AAE24194A1B00563E8A /* ImageClassifier.swift in Sources */,
 				18695AA82419471600563E8A /* MobileNetV2.mlmodel in Sources */,
 				18695AA52419399100563E8A /* CIImage+Extra.swift in Sources */,
 				18695A862416C85D00563E8A /* AppDelegate.swift in Sources */,
