@@ -21,6 +21,7 @@
 		18695AAA2419483900563E8A /* CGImagePropertyOrientation+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA92419483900563E8A /* CGImagePropertyOrientation+Extra.swift */; };
 		18695AAE24194A1B00563E8A /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AAD24194A1B00563E8A /* ImageClassifier.swift */; };
 		18695AB0241AA72300563E8A /* UIImage.Orientation+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AAF241AA72300563E8A /* UIImage.Orientation+Extra.swift */; };
+		18695AB2241AE1CC00563E8A /* UIViewController+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AB1241AE1CC00563E8A /* UIViewController+Extras.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		18695AA92419483900563E8A /* CGImagePropertyOrientation+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Extra.swift"; sourceTree = "<group>"; };
 		18695AAD24194A1B00563E8A /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
 		18695AAF241AA72300563E8A /* UIImage.Orientation+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage.Orientation+Extra.swift"; sourceTree = "<group>"; };
+		18695AB1241AE1CC00563E8A /* UIViewController+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extras.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		18695AAB241949CE00563E8A /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				18695AB1241AE1CC00563E8A /* UIViewController+Extras.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				18695AA82419471600563E8A /* MobileNetV2.mlmodel in Sources */,
 				18695AA52419399100563E8A /* CIImage+Extra.swift in Sources */,
 				18695A862416C85D00563E8A /* AppDelegate.swift in Sources */,
+				18695AB2241AE1CC00563E8A /* UIViewController+Extras.swift in Sources */,
 				18695A882416C85D00563E8A /* SceneDelegate.swift in Sources */,
 				18695AA32419372A00563E8A /* CMSampleBuffer+Extra.swift in Sources */,
 				18695AAA2419483900563E8A /* CGImagePropertyOrientation+Extra.swift in Sources */,

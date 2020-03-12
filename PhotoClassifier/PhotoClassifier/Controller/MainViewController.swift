@@ -16,13 +16,33 @@ class MainViewController: UIViewController {
     private let processingQueue = DispatchQueue(label: "outputQueue")
     private var sessionSetupResult: SessionSetupResult = .success
     private let imageClassifier = ImageClassifier()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if isAnyCameraAvailable() {
+            startClassification()
+        } else {
+            showAlert(title: "Camera Required", message: "This application requires a camera to work.") {
+                fatalError("Camera permission is not granted")
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        sessionQueue.async {
+            if self.session.isRunning {
+                self.session.stopRunning()
+            }
+        }
+    }
+    
+    private func startClassification() {
         verifyAccessAndSetupSession()
         (self.view as! VideoPreviewView).previewLayer.session = session
         imageClassifier.delegate = { (result: String) in
@@ -30,10 +50,8 @@ class MainViewController: UIViewController {
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        sessionQueue.async {
-            self.session.stopRunning()
-        }
+    private func isAnyCameraAvailable() -> Bool {
+        return UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     
     private func verifyAccessAndSetupSession() {
@@ -44,6 +62,7 @@ class MainViewController: UIViewController {
             requestAccessAndSetupSession()
         default:
             sessionSetupResult = .notAuthorized
+            self.showCameraPermissionRequiredAlert()
         }
     }
     
@@ -53,10 +72,20 @@ class MainViewController: UIViewController {
                 self.setupCaptureSession()
             } else {
                 self.sessionSetupResult = .notAuthorized
+                self.showCameraPermissionRequiredAlert()
             }
         }
     }
-
+    
+    private func showCameraPermissionRequiredAlert() {
+        DispatchQueue.main.async {
+            self.showAlert(title: "Camera Permission Required",
+                           message: "This application needs camera permission to work. Please go to settings and grant camera permission.") {
+                            fatalError("Camera permission is not granted")
+            }
+        }
+    }
+    
     private func setupCaptureSession() {
         if sessionSetupResult != .success {
             return
@@ -90,7 +119,7 @@ class MainViewController: UIViewController {
             return inputDevice
         }
     }
-
+    
     // Call this method from sessionQueue
     private func addInputDevice(block: () -> AVCaptureDevice?) -> Bool {
         let inputDevice = block()
