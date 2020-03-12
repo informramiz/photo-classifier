@@ -27,7 +27,6 @@ class ImageClassifier {
                         .map {($0, $0.toUIImage().imageOrientation.toCGImagePropertyOrientation())}
                 .throttle(for: .milliseconds(500), scheduler: RunLoop.main, latest: true)
                         .sink { (imageData: (CIImage, CGImagePropertyOrientation)) in
-                            print("classifying image")
                             self.classifyImage(imageData.0, orientation: imageData.1)
                     }
         }
