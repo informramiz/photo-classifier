@@ -16,13 +16,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wrx-wu-Wc8">
-                                <rect key="frame" x="20" y="771.5" width="68" height="40.5"/>
+                                <rect key="frame" x="20" y="792" width="20" height="20"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wbN-X8-dIl">
-                                    <rect key="frame" x="0.0" y="0.0" width="68" height="41"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jB-se-p2M" userLabel="Classification Label">
-                                            <rect key="frame" x="10" y="10" width="48" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jB-se-p2M" userLabel="Classification Label">
+                                            <rect key="frame" x="10" y="10" width="0.0" height="0.0"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -30,9 +30,9 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="1jB-se-p2M" firstAttribute="top" secondItem="wbN-X8-dIl" secondAttribute="top" constant="10" id="REQ-fF-739"/>
-                                        <constraint firstAttribute="bottom" secondItem="1jB-se-p2M" secondAttribute="bottom" constant="10" id="U4a-4n-4WI"/>
+                                        <constraint firstItem="1jB-se-p2M" firstAttribute="bottom" secondItem="wbN-X8-dIl" secondAttribute="bottom" constant="-10" id="U4a-4n-4WI"/>
                                         <constraint firstItem="1jB-se-p2M" firstAttribute="leading" secondItem="wbN-X8-dIl" secondAttribute="leading" constant="10" id="mf4-DT-sf5"/>
-                                        <constraint firstAttribute="trailing" secondItem="1jB-se-p2M" secondAttribute="trailing" constant="10" id="tN8-3y-d0w"/>
+                                        <constraint firstItem="1jB-se-p2M" firstAttribute="trailing" secondItem="wbN-X8-dIl" secondAttribute="trailing" constant="-10" id="tN8-3y-d0w"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="extraLight"/>
@@ -41,6 +41,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Wrx-wu-Wc8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3yv-qe-rzH"/>
+                            <constraint firstItem="Wrx-wu-Wc8" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-50" id="49v-63-nYw"/>
                             <constraint firstItem="Wrx-wu-Wc8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-50" id="6gu-98-98x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
