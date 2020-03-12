@@ -25,9 +25,11 @@ class ImageClassifier {
     }()
     
     private lazy var classificationRequest: VNCoreMLRequest = {
-        return VNCoreMLRequest(model: model) { [weak self] (request, error) in
+        let request = VNCoreMLRequest(model: model) { [weak self] (request, error) in
             self?.processClassifications(request, error)
         }
+        request.imageCropAndScaleOption = .centerCrop
+        return request
     }()
     
     private func callDelegate(_ result: String) {
