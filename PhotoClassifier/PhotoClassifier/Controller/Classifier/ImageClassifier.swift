@@ -24,11 +24,11 @@ class ImageClassifier {
     func classifyImage(_ ciImage: CIImage) {
         if subscriber == nil {
             subscriber = imagePublisher
-                        .map {($0, $0.toUIImage().imageOrientation.toCGImagePropertyOrientation())}
+                .map {($0, $0.toUIImage().imageOrientation.toCGImagePropertyOrientation())}
                 .throttle(for: .milliseconds(500), scheduler: RunLoop.main, latest: true)
-                        .sink { (imageData: (CIImage, CGImagePropertyOrientation)) in
-                            self.classifyImage(imageData.0, orientation: imageData.1)
-                    }
+                .sink { (imageData: (CIImage, CGImagePropertyOrientation)) in
+                    self.classifyImage(imageData.0, orientation: imageData.1)
+            }
         }
         imagePublisher.send(ciImage)
     }
