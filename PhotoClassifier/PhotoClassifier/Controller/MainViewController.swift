@@ -10,7 +10,6 @@ import UIKit
 import AVFoundation
 
 class MainViewController: UIViewController {
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var classificationLabel: UILabel!
     private let session = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "sessionQueue")
