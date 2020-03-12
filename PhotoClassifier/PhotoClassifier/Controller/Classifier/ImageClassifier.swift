@@ -11,10 +11,28 @@ import Vision
 import CoreML
 import ImageIO
 import UIKit
+import Combine
 
 class ImageClassifier {
     /** Delegate to send results back to the caller */
     var delegate: ((String) -> Void)? = nil
+    
+    /** Publisher to manage frames and to handle backpressure*/
+    private let imagePublisher = PassthroughSubject<CIImage, Never>()
+    private var subscriber: AnyCancellable? = nil
+    
+    func classifyImage(_ ciImage: CIImage) {
+        if subscriber == nil {
+            subscriber = imagePublisher
+                        .map {($0, $0.toUIImage().imageOrientation.toCGImagePropertyOrientation())}
+                .throttle(for: .milliseconds(500), scheduler: RunLoop.main, latest: true)
+                        .sink { (imageData: (CIImage, CGImagePropertyOrientation)) in
+                            print("classifying image")
+                            self.classifyImage(imageData.0, orientation: imageData.1)
+                    }
+        }
+        imagePublisher.send(ciImage)
+    }
     
     private lazy var model: VNCoreMLModel = {
         do {
@@ -60,10 +78,10 @@ class ImageClassifier {
         }
     }
     
-    func classifyImage(_ image: CIImage, orientation: UIImage.Orientation) {
+    private func classifyImage(_ image: CIImage, orientation: CGImagePropertyOrientation) {
         // classification process is synchronous (e.g. VNImageRequestHandler) so we call it on a background thread
         DispatchQueue.global(qos: .userInteractive).async {
-            let imageHandler = VNImageRequestHandler(ciImage: image, orientation: CGImagePropertyOrientation(orientation))
+            let imageHandler = VNImageRequestHandler(ciImage: image, orientation: orientation)
             do {
                 try imageHandler.perform([self.classificationRequest])
             } catch {
@@ -71,4 +89,6 @@ class ImageClassifier {
             }
         }
     }
+    
+    
 }

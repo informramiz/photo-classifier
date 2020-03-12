@@ -20,6 +20,7 @@
 		18695AA82419471600563E8A /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA72419471600563E8A /* MobileNetV2.mlmodel */; };
 		18695AAA2419483900563E8A /* CGImagePropertyOrientation+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA92419483900563E8A /* CGImagePropertyOrientation+Extra.swift */; };
 		18695AAE24194A1B00563E8A /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AAD24194A1B00563E8A /* ImageClassifier.swift */; };
+		18695AB0241AA72300563E8A /* UIImage.Orientation+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AAF241AA72300563E8A /* UIImage.Orientation+Extra.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		18695AA72419471600563E8A /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		18695AA92419483900563E8A /* CGImagePropertyOrientation+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Extra.swift"; sourceTree = "<group>"; };
 		18695AAD24194A1B00563E8A /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
+		18695AAF241AA72300563E8A /* UIImage.Orientation+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage.Orientation+Extra.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				18695AA22419372A00563E8A /* CMSampleBuffer+Extra.swift */,
 				18695AA42419399100563E8A /* CIImage+Extra.swift */,
 				18695AA92419483900563E8A /* CGImagePropertyOrientation+Extra.swift */,
+				18695AAF241AA72300563E8A /* UIImage.Orientation+Extra.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			files = (
 				18695A8A2416C85D00563E8A /* MainViewController.swift in Sources */,
 				18695A9E2417D5B700563E8A /* VideoPreviewView.swift in Sources */,
+				18695AB0241AA72300563E8A /* UIImage.Orientation+Extra.swift in Sources */,
 				18695AAE24194A1B00563E8A /* ImageClassifier.swift in Sources */,
 				18695AA82419471600563E8A /* MobileNetV2.mlmodel in Sources */,
 				18695AA52419399100563E8A /* CIImage+Extra.swift in Sources */,
@@ -379,7 +383,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T94EV27U43;
 				INFOPLIST_FILE = PhotoClassifier/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,7 +402,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T94EV27U43;
 				INFOPLIST_FILE = PhotoClassifier/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

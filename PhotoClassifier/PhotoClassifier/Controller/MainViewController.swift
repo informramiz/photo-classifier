@@ -128,7 +128,6 @@ class MainViewController: UIViewController {
 extension MainViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let ciImage = sampleBuffer.toCIImage() else { return }
-        let uiImage = ciImage.toUIImage()
-        imageClassifier.classifyImage(ciImage, orientation: uiImage.imageOrientation)
+        imageClassifier.classifyImage(ciImage)
     }
 }
