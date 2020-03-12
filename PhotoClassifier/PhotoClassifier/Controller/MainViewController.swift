@@ -20,6 +20,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //make visual effects view round
+        self.classificationLabel.superview?.superview?.layer.cornerRadius = 10
     }
     
     override func viewWillAppear(_ animated: Bool) {
