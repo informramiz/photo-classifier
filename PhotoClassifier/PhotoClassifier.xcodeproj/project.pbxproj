@@ -17,11 +17,11 @@
 		18695AA024182E9400563E8A /* SessionSetupResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695A9F24182E9400563E8A /* SessionSetupResult.swift */; };
 		18695AA32419372A00563E8A /* CMSampleBuffer+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA22419372A00563E8A /* CMSampleBuffer+Extra.swift */; };
 		18695AA52419399100563E8A /* CIImage+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA42419399100563E8A /* CIImage+Extra.swift */; };
-		18695AA82419471600563E8A /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA72419471600563E8A /* MobileNetV2.mlmodel */; };
 		18695AAA2419483900563E8A /* CGImagePropertyOrientation+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AA92419483900563E8A /* CGImagePropertyOrientation+Extra.swift */; };
 		18695AAE24194A1B00563E8A /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AAD24194A1B00563E8A /* ImageClassifier.swift */; };
 		18695AB0241AA72300563E8A /* UIImage.Orientation+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AAF241AA72300563E8A /* UIImage.Orientation+Extra.swift */; };
 		18695AB2241AE1CC00563E8A /* UIViewController+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AB1241AE1CC00563E8A /* UIViewController+Extras.swift */; };
+		18695AB4241AF2B900563E8A /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 18695AB3241AF2B900563E8A /* MobileNet.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +37,11 @@
 		18695A9F24182E9400563E8A /* SessionSetupResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSetupResult.swift; sourceTree = "<group>"; };
 		18695AA22419372A00563E8A /* CMSampleBuffer+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+Extra.swift"; sourceTree = "<group>"; };
 		18695AA42419399100563E8A /* CIImage+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extra.swift"; sourceTree = "<group>"; };
-		18695AA72419471600563E8A /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		18695AA92419483900563E8A /* CGImagePropertyOrientation+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+Extra.swift"; sourceTree = "<group>"; };
 		18695AAD24194A1B00563E8A /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
 		18695AAF241AA72300563E8A /* UIImage.Orientation+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage.Orientation+Extra.swift"; sourceTree = "<group>"; };
 		18695AB1241AE1CC00563E8A /* UIViewController+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extras.swift"; sourceTree = "<group>"; };
+		18695AB3241AF2B900563E8A /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 		18695AA6241946D900563E8A /* MLModels */ = {
 			isa = PBXGroup;
 			children = (
-				18695AA72419471600563E8A /* MobileNetV2.mlmodel */,
+				18695AB3241AF2B900563E8A /* MobileNet.mlmodel */,
 			);
 			path = MLModels;
 			sourceTree = "<group>";
@@ -233,7 +233,7 @@
 				18695A9E2417D5B700563E8A /* VideoPreviewView.swift in Sources */,
 				18695AB0241AA72300563E8A /* UIImage.Orientation+Extra.swift in Sources */,
 				18695AAE24194A1B00563E8A /* ImageClassifier.swift in Sources */,
-				18695AA82419471600563E8A /* MobileNetV2.mlmodel in Sources */,
+				18695AB4241AF2B900563E8A /* MobileNet.mlmodel in Sources */,
 				18695AA52419399100563E8A /* CIImage+Extra.swift in Sources */,
 				18695A862416C85D00563E8A /* AppDelegate.swift in Sources */,
 				18695AB2241AE1CC00563E8A /* UIViewController+Extras.swift in Sources */,

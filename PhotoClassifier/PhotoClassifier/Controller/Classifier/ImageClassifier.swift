@@ -21,21 +21,9 @@ class ImageClassifier {
     private let imagePublisher = PassthroughSubject<CIImage, Never>()
     private var subscriber: AnyCancellable? = nil
     
-    func classifyImage(_ ciImage: CIImage) {
-        if subscriber == nil {
-            subscriber = imagePublisher
-                .map {($0, $0.toUIImage().imageOrientation.toCGImagePropertyOrientation())}
-                .throttle(for: .milliseconds(500), scheduler: RunLoop.main, latest: true)
-                .sink { (imageData: (CIImage, CGImagePropertyOrientation)) in
-                    self.classifyImage(imageData.0, orientation: imageData.1)
-            }
-        }
-        imagePublisher.send(ciImage)
-    }
-    
     private lazy var model: VNCoreMLModel = {
         do {
-            return try VNCoreMLModel(for: MobileNetV2().model)
+            return try VNCoreMLModel(for: MobileNet().model)
         } catch {
             fatalError("Failed to ML Model:\n\(error.localizedDescription)")
         }
@@ -48,6 +36,18 @@ class ImageClassifier {
         request.imageCropAndScaleOption = .centerCrop
         return request
     }()
+    
+    func classifyImage(_ ciImage: CIImage) {
+        if subscriber == nil {
+            subscriber = imagePublisher
+                .map {($0, $0.toUIImage().imageOrientation.toCGImagePropertyOrientation())}
+                .throttle(for: .milliseconds(500), scheduler: RunLoop.main, latest: true)
+                .sink { (imageData: (CIImage, CGImagePropertyOrientation)) in
+                    self.classifyImage(imageData.0, orientation: imageData.1)
+            }
+        }
+        imagePublisher.send(ciImage)
+    }
     
     private func callDelegate(_ result: String) {
         DispatchQueue.main.async {
